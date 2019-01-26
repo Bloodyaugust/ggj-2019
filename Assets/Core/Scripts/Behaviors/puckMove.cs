@@ -20,12 +20,15 @@ public class puckMove : MonoBehaviour
 
     bool move = true;
 
+    Rigidbody2D body; 
+
     // Start is called before the first frame update
     void Start()
     {
         randX = Random.Range(-speed, speed);
         randY = Random.Range(-speed, speed);
         moveDuration = Random.Range(moveDurationMin, moveDurationMax);
+        body = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -33,7 +36,7 @@ public class puckMove : MonoBehaviour
     {
         if (elapsedTime < moveDuration && move)
         {
-            transform.Translate(new Vector2(randX, randY) * Time.deltaTime);
+            body.AddForce(new Vector2(randX, randY));
             elapsedTime += Time.deltaTime;
         }
         else if (move)
