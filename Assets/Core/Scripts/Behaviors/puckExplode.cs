@@ -36,7 +36,6 @@ public class puckExplode : MonoBehaviour
                 float fade = 1 - (dir.magnitude / radius);
                 Vector2 baseForce = dir.normalized * force * fade;
                 body.AddForce(baseForce,ForceMode2D.Impulse);
-                Debug.Log("explode");
             }
         }
 
