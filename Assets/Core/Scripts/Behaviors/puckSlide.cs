@@ -5,7 +5,7 @@ using UnityEngine;
 public class puckSlide : MonoBehaviour
 
 {
-    public int Value = 5; //positive for good pucks, negative for bad
+    public float CollisionMultiplier = 1f;
     private Rigidbody2D puckBody;
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class puckSlide : MonoBehaviour
             //Give the puck an impulse to slide around a bit. Change the friction with the drag settings in the rigidbody
             if (contact.collider.tag == "Player")
             {
-                puckBody.AddForceAtPosition(contact.normal, contact.point, ForceMode2D.Impulse);
+                puckBody.AddForceAtPosition(contact.normal * CollisionMultiplier, contact.point, ForceMode2D.Impulse);
             }
         }
     }

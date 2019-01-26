@@ -22,7 +22,7 @@ public class driveway : MonoBehaviour
     {
         if (collision.tag == "Puck")
         {
-            puckSlide puck = collision.gameObject.GetComponent<puckSlide>();
+            puckData puck = collision.gameObject.GetComponent<puckData>();
             Debug.Log(puck.Value);
             //pass the puck value and the driveway number to whatever is keeping track of score
 
