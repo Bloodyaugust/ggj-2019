@@ -18,6 +18,9 @@ public class ufo : MonoBehaviour
 
     public float movingChance = .3f;
     public float explodingChance = .1f;
+
+    public AudioClip ufoSound;
+
     bool moving = false;
     bool entering = true;
     Vector2 targetPos = new Vector2(0f, 0f);
@@ -57,7 +60,7 @@ public class ufo : MonoBehaviour
 
     IEnumerator waitToDrop()
     {
-        Debug.Log("waiting");
+
         float waitTime = Random.Range(minWaitTime, maxWaitTime);
         yield return new WaitForSeconds(waitTime);
         moveToDropPoint();
@@ -109,13 +112,14 @@ public class ufo : MonoBehaviour
                 targetPos = startPoints[1].position;
                 break;
         }
-        Debug.Log(targetPos);
+
         moving = true;
     }
 
     void moveToDropPoint()
     {
-        Debug.Log("starting");
+        GetComponent<AudioSource>().PlayOneShot(ufoSound);
+
         int dropPoint = Random.Range(0, dropPoints.Count - 1);
         startPoint = Random.Range(0, startPoints.Count - 1);
 

@@ -9,6 +9,13 @@ public class changeHouses : MonoBehaviour
     public int level = 1;
     public int houseNumber = 1;
     Sprite houseSprite;
+    bool start = true;
+    Toolbox toolbox;
+
+    private void Awake()
+    {
+        toolbox = Toolbox.Instance;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +68,13 @@ public class changeHouses : MonoBehaviour
                     houseSprite = houseImages[7];
                     break;
             }
+        }
+
+        if (start)
+            start = false;
+        else
+        {
+            toolbox.playOneShotClip(0);
         }
     }
 }
