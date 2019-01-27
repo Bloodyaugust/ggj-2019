@@ -44,6 +44,11 @@ public class Toolbox : Singleton<Toolbox> {
 		if (GameOverText) {
 			GameOverText.SetActive(true);
 		}
+
+		GameObject[] pucks = GameObject.FindGameObjectsWithTag("Puck");
+		for (int i = 0; i < pucks.Length; i++) {
+			Destroy(pucks[i]);
+		}
 	}
 
 	void OnGameStart () {
