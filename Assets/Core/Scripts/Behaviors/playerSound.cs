@@ -64,7 +64,6 @@ public class playerSound : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerAudioSource.volume = 2;
             playerAudioSource.PlayOneShot(collisionSound);
         }
     }

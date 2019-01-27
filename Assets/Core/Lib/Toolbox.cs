@@ -23,6 +23,8 @@ public class Toolbox : Singleton<Toolbox> {
 	public UnityEvent HouseDowngrade;
 	public UnityEvent HouseUpgrade;
     public List<AudioClip> oneShotClips;
+    public List<AudioClip> loopingClips;
+    AudioSource cameraAudioSource;
 
 	void Awake () {
 		_currentState = GameState.WAITING;
@@ -37,7 +39,11 @@ public class Toolbox : Singleton<Toolbox> {
 
 		PlayerActive.AddListener(OnPlayerActive);
 
-		SceneManager.sceneLoaded += OnSceneLoaded;
+        cameraAudioSource = GetComponent<AudioSource>();
+        cameraAudioSource.clip = loopingClips[0];
+        cameraAudioSource.Play();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
 	void OnPlayerActive (ActiveData data) {
@@ -53,8 +59,10 @@ public class Toolbox : Singleton<Toolbox> {
 
 		if (ready) {
 			_currentState = GameState.PLAYING;
+            cameraAudioSource.clip = loopingClips[1];
+            cameraAudioSource.Play();
 
-			for (int i = 0; i < _playersReady.Length; i++) {
+            for (int i = 0; i < _playersReady.Length; i++) {
 				_playersReady[i] = false;
 			}
 		}
@@ -70,6 +78,6 @@ public class Toolbox : Singleton<Toolbox> {
 
     public void playOneShotClip(int clipNum)
     {
-        GetComponent<AudioSource>().PlayOneShot(oneShotClips[clipNum]);
+        cameraAudioSource.PlayOneShot(oneShotClips[clipNum]);
     }
 }
