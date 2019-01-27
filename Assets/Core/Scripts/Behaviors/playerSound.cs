@@ -9,11 +9,13 @@ public class playerSound : MonoBehaviour
     public AudioClip engine2;
     public AudioClip backup;
     public AudioClip honk;
-    public AudioClip collision;
+    public AudioClip collisionSound;
     AudioSource playerAudioSource;
 
     Player _player;
     PlayerController _playerController;
+
+    int lastDirection = 0;
 
     void Awake()
     {
@@ -29,6 +31,41 @@ public class playerSound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_player.GetAxis("Move"));
+        if (_player.GetAxis("Move") > 0)
+        {
+            if (lastDirection != -1)
+            {
+                lastDirection = -1;
+                playerAudioSource.clip = engine2;
+                playerAudioSource.Play();
+            }
+        }
+        else if (_player.GetAxis("Move") < 0)
+        {
+            if (lastDirection != 1)
+            {
+                lastDirection = 1;
+                playerAudioSource.clip = backup;
+                playerAudioSource.Play();
+            }
+        }
+        else
+        {
+            if (lastDirection != 0)
+            {
+                lastDirection = 0;
+                playerAudioSource.clip = engine1;
+                playerAudioSource.Play();
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            playerAudioSource.volume = 2;
+            playerAudioSource.PlayOneShot(collisionSound);
+        }
     }
 }
