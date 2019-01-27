@@ -826,6 +826,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8368973702249790666, guid: 76524f2cbd4c090449b6d1a5a3dad86e,
+        type: 3}
+      propertyPath: drivewayNum
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76524f2cbd4c090449b6d1a5a3dad86e, type: 3}
 --- !u!1 &1183337171
@@ -948,7 +953,7 @@ PrefabInstance:
     - target: {fileID: 8368973702249790666, guid: 76524f2cbd4c090449b6d1a5a3dad86e,
         type: 3}
       propertyPath: drivewayNum
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76524f2cbd4c090449b6d1a5a3dad86e, type: 3}
@@ -1042,7 +1047,7 @@ PrefabInstance:
     - target: {fileID: 8368973702249790666, guid: 76524f2cbd4c090449b6d1a5a3dad86e,
         type: 3}
       propertyPath: drivewayNum
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76524f2cbd4c090449b6d1a5a3dad86e, type: 3}
@@ -1646,7 +1651,7 @@ PrefabInstance:
     - target: {fileID: 8368973702249790666, guid: 76524f2cbd4c090449b6d1a5a3dad86e,
         type: 3}
       propertyPath: drivewayNum
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76524f2cbd4c090449b6d1a5a3dad86e, type: 3}
@@ -1745,12 +1750,12 @@ PrefabInstance:
     - target: {fileID: 8885228981594004078, guid: 39f4d2aa54ec86a49abfc9fb8fb09c48,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.87
+      value: 14.96
       objectReference: {fileID: 0}
     - target: {fileID: 8885228981594004078, guid: 39f4d2aa54ec86a49abfc9fb8fb09c48,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.47
+      value: 3.55
       objectReference: {fileID: 0}
     - target: {fileID: 8885228981594004078, guid: 39f4d2aa54ec86a49abfc9fb8fb09c48,
         type: 3}
