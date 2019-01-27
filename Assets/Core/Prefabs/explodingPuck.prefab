@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2727272329845023456}
   - component: {fileID: 8021014849672781014}
   - component: {fileID: 7962746729828847992}
-  - component: {fileID: 2846018694595981018}
   m_Layer: 0
   m_Name: explodingPuck
   m_TagString: Puck
@@ -149,16 +148,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.435
---- !u!114 &2846018694595981018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8021014849672781012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ee7f0d0be30dc4f92e616a2111c2cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Value: 5
