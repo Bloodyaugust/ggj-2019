@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Com.LuisPedroFonseca.ProCamera2D;
+using TMPro;
 
 public class Toolbox : Singleton<Toolbox> {
 	protected Toolbox () {}
@@ -43,16 +44,26 @@ public class Toolbox : Singleton<Toolbox> {
 		GameStart.AddListener(OnGameStart);
 		PlayerActive.AddListener(OnPlayerActive);
 
-        cameraAudioSource = GetComponent<AudioSource>();
-        cameraAudioSource.clip = loopingClips[0];
-        cameraAudioSource.Play();
+    cameraAudioSource = GetComponent<AudioSource>();
+    cameraAudioSource.clip = loopingClips[0];
+    cameraAudioSource.Play();
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
+    SceneManager.sceneLoaded += OnSceneLoaded;
+
+		if (GameOverText) {
+			GameOverText.SetActive(true);
+
+			string newGameOverText = $"All players press any button to play";
+			GameOverText.GetComponent<TextMeshProUGUI>().text = newGameOverText;
+		}
 	}
 
 	void OnGameEnd (int winningPlayerIndex) {
 		if (GameOverText) {
 			GameOverText.SetActive(true);
+
+			string newGameOverText = $"Player {winningPlayerIndex} wins! \r\n All players press any button to play again.";
+			GameOverText.GetComponent<TextMeshProUGUI>().text = newGameOverText;
 		}
 
 		GameObject[] pucks = GameObject.FindGameObjectsWithTag("Puck");
