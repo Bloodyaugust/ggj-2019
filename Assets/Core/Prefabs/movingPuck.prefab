@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 282339650375248019}
   - component: {fileID: 5287924510112405154}
   - component: {fileID: 4122111860095108515}
+  - component: {fileID: 2665469857421476499}
   m_Layer: 0
   m_Name: movingPuck
   m_TagString: Puck
@@ -150,3 +151,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.435
+--- !u!114 &2665469857421476499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5287924510112405159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f4363dfd5d83e4ab295de4deb51bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puckOptions:
+  - {fileID: 11400000, guid: 7e716b35bc66f7048958c997f4ad0297, type: 2}
+  - {fileID: 11400000, guid: a1a181af25668f34c96f7c913a977278, type: 2}
+  selectedPuck: {fileID: 0}
