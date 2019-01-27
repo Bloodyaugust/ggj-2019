@@ -34,3 +34,10 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Unity Store Assets
+Assets/ProCamera2D/
+Assets/Rewired/
+
+# No Mac horseshit
+*.DS_Store
