@@ -127,12 +127,12 @@ PrefabInstance:
     - target: {fileID: 8021014849672781011, guid: 97b54de7675a03b4e9698c5514cfe993,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1136652
+      value: -3.44
       objectReference: {fileID: 0}
     - target: {fileID: 8021014849672781011, guid: 97b54de7675a03b4e9698c5514cfe993,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8485278
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 8021014849672781011, guid: 97b54de7675a03b4e9698c5514cfe993,
         type: 3}
@@ -495,26 +495,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ActiveEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  GameOverText: {fileID: 0}
+  HouseLevelChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: HouseChangeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  GameEnd:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   Score:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  GameEnd:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   GameStart:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  HouseDowngrade:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  HouseUpgrade:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -524,6 +519,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4f79399afd7630047b6b2089248e4c1a, type: 3}
   - {fileID: 8300000, guid: 93f9f6c07aaab304eb888df3538c18c2, type: 3}
   - {fileID: 8300000, guid: 2c9e14f8f63b02b4fb368bfb4690da9d, type: 3}
+  loopingClips: []
 --- !u!1001 &556259329
 PrefabInstance:
   m_ObjectHideFlags: 0
