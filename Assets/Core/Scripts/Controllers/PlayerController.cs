@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour {
   void OnGameStart () {
     _isPlaying = true;
     _score = 0;
+    EvaluateScore();
     _playerMovement.enabled = true;
   }
 
