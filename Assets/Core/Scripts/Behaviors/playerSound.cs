@@ -12,8 +12,6 @@ public class playerSound : MonoBehaviour
     public AudioClip collisionSound;
     AudioSource playerAudioSource;
     public ParticleSystem smokeParticles;
-    public ParticleSystem wheelParticles1;
-    public ParticleSystem wheelParticles2;
 
     Player _player;
     PlayerController _playerController;
@@ -35,8 +33,11 @@ public class playerSound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var playerRot = transform.eulerAngles.z;
+
         if (_player.GetAxis("Move") > 0)
         {
+
             if (lastDirection != -1)
             {
                 lastDirection = -1;
@@ -45,17 +46,13 @@ public class playerSound : MonoBehaviour
 
                 var em = smokeParticles.emission;
                 em.rateOverTime = 12f;
-
-                em = wheelParticles1.emission;
-                em.rateOverTime = 3f;
-                var main = wheelParticles1.main;
-                Debug.Log(transform.rotation.z*360);
-                main.startRotation = (transform.rotation.z*360)-90;
+                
 
             }
         }
         else if (_player.GetAxis("Move") < 0)
         {
+
             if (lastDirection != 1)
             {
                 lastDirection = 1;
@@ -64,12 +61,7 @@ public class playerSound : MonoBehaviour
 
                 var em = smokeParticles.emission;
                 em.rateOverTime = 12f;
-
-                em = wheelParticles1.emission;
-                em.rateOverTime = 3f;
-                var main = wheelParticles1.main;
-                Debug.Log(transform.rotation.z);
-                main.startRotation = (transform.rotation.z*360)-75;
+                
             }
         }
         else
@@ -82,9 +74,6 @@ public class playerSound : MonoBehaviour
 
                 var em = smokeParticles.emission;
                 em.rateOverTime = 2f;
-
-                em = wheelParticles1.emission;
-                em.rateOverTime = 0f;
             }
         }
     }
