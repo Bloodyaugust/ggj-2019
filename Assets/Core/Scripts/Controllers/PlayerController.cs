@@ -19,9 +19,13 @@ public class PlayerController : MonoBehaviour {
   void EvaluateScore () {
     _playerMovement = GetComponent<PlayerMovement>();
     _score = Mathf.Clamp(_score, 0, ScorePerLevel * MaxLevel);
+
+    int oldLevel = _level;
     _level = (int)Mathf.Floor(_score / ScorePerLevel);
 
-    _toolbox.HouseLevelChange.Invoke(_level);
+    if (oldLevel != _level) {
+      _toolbox.HouseLevelChange.Invoke(new HouseChangeData(_level, PlayerIndex));
+    }
   }
 
   // Start is called before the first frame update
@@ -65,6 +69,7 @@ public class PlayerController : MonoBehaviour {
   void OnScore (ScoreData scoreData) {
     if (PlayerIndex == scoreData.PlayerIndex) {
       _score += scoreData.Amount;
+      Debug.Log(scoreData.Amount);
       EvaluateScore();
     }
   }
