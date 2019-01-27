@@ -4716,7 +4716,7 @@ GameObject:
   - component: {fileID: 2383616155036177953}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4886,8 +4886,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: 0
-  ScorePerLevel: 5
-  MaxLevel: 5
+  ScorePerLevel: 1000
+  MaxLevel: 3
 --- !u!82 &74738871196961880
 AudioSource:
   m_ObjectHideFlags: 0

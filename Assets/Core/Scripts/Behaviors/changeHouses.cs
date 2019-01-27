@@ -6,9 +6,9 @@ public class changeHouses : MonoBehaviour
 {
     public List<Sprite> houseImages = new List<Sprite>();
     public bool facingDown = true;
-    public int level = 1;
-    public int houseNumber = 1;
-    Sprite houseSprite;
+    public int level = 0;
+    public int PlayerIndex;
+    SpriteRenderer houseSpriteRenderer;
     bool start = true;
     Toolbox toolbox;
 
@@ -20,10 +20,11 @@ public class changeHouses : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        houseSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
-        UpdateSprite(1);
+        houseSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         toolbox.HouseLevelChange.AddListener(UpdateSprite);
+
+        UpdateSprite(new HouseChangeData(1, 0));
     }
 
     // Update is called once per frame
@@ -32,51 +33,23 @@ public class changeHouses : MonoBehaviour
 
     }
 
-    public void UpdateSprite(int inLevel)
-    {
-        level = inLevel;
-        if (facingDown)
-        {
-            switch (level)
-            {
-                case 1:
-                    houseSprite = houseImages[0];
-                    break;
-                case 2:
-                    houseSprite = houseImages[1];
-                    break;
-                case 3:
-                    houseSprite = houseImages[2];
-                    break;
-                case 4:
-                    houseSprite = houseImages[3];
-                    break;
-            }
-        }
-        else
-        {
-            switch (level)
-            {
-                case 1:
-                    houseSprite = houseImages[4];
-                    break;
-                case 2:
-                    houseSprite = houseImages[5];
-                    break;
-                case 3:
-                    houseSprite = houseImages[6];
-                    break;
-                case 4:
-                    houseSprite = houseImages[7];
-                    break;
-            }
+    void UpdateSprite(HouseChangeData changeData) {
+      Sprite newSprite;
+
+      if (PlayerIndex == changeData.PlayerIndex) {
+        if (facingDown) {
+          newSprite = houseImages[changeData.Level];
+        } else {
+          newSprite = houseImages[changeData.Level + 4];
         }
 
-        if (start)
-            start = false;
-        else
-        {
-            toolbox.playOneShotClip(0);
+        if (start) {
+          start = false;
+        } else {
+          toolbox.playOneShotClip(0);
         }
+
+        houseSpriteRenderer.sprite = newSprite;
+      }
     }
 }
