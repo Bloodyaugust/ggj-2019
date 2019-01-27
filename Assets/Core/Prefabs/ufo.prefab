@@ -118,7 +118,7 @@ MonoBehaviour:
     type: 3}
   movingChance: 0.3
   explodingChance: 0.1
-  ufoSound: {fileID: 8300000, guid: 205c8fda4edddee4f9fff73c44863af3, type: 3}
+  ufoSound: {fileID: 8300000, guid: 9187e20ac7f27ef4a8e6c1cf8e75ed47, type: 3}
 --- !u!82 &1376329369807332054
 AudioSource:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 205c8fda4edddee4f9fff73c44863af3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9187e20ac7f27ef4a8e6c1cf8e75ed47, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
