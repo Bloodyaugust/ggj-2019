@@ -345,7 +345,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3bd6037df00bee941901e9c5f7ac93c8,
+      objectReference: {fileID: 21300000, guid: 1a0e6fe4a4c0b6a43b2c84e00834c043,
         type: 3}
     - target: {fileID: 6081447667241555181, guid: a1586af9b6fe2e84ba90afbae9d7a0b1,
         type: 3}
@@ -538,7 +538,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bec8ce3f18f84204080d8efdf1946a4e,
+      objectReference: {fileID: 21300000, guid: 1c58d55fd75347f4e945c6d5d041ae85,
         type: 3}
     - target: {fileID: 6081447667241555181, guid: a1586af9b6fe2e84ba90afbae9d7a0b1,
         type: 3}
@@ -1498,6 +1498,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6081447667241555182, guid: a1586af9b6fe2e84ba90afbae9d7a0b1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e05cc987a845d0645b883165d58bf3df,
+        type: 3}
     - target: {fileID: 6081447667241555181, guid: a1586af9b6fe2e84ba90afbae9d7a0b1,
         type: 3}
       propertyPath: m_Enabled
@@ -1736,7 +1742,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: df7bcdad701e6bc418ea3b5b027e63fc,
+      objectReference: {fileID: 21300000, guid: 9a083a3a01970684d80e4ce8ab8eba53,
         type: 3}
     - target: {fileID: 6081447667241555181, guid: a1586af9b6fe2e84ba90afbae9d7a0b1,
         type: 3}

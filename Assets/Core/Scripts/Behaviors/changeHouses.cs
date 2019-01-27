@@ -23,8 +23,6 @@ public class changeHouses : MonoBehaviour
         houseSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         toolbox.HouseLevelChange.AddListener(UpdateSprite);
-
-        UpdateSprite(new HouseChangeData(1, 0));
     }
 
     // Update is called once per frame
