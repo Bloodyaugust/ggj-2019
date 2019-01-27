@@ -2,18 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class puckData : MonoBehaviour
+[CreateAssetMenu(fileName = "New Puck", menuName = "puck")]
+public class puckData : ScriptableObject
 {
-    public int Value = 5; //positive for good pucks, negative for bad
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int type; //1 for basic, 2 for moving, 3 for explosive
+    public int value; //positive for good pucks, negative for bad
+    public Sprite artwork;
 }

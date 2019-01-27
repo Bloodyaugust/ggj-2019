@@ -14,17 +14,18 @@ public class changeHouses : MonoBehaviour
     void Start()
     {
         houseSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
-        UpdateSprite();
+        UpdateSprite(1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void UpdateSprite()
+    public void UpdateSprite(int inLevel)
     {
+        level = inLevel;
         if (facingDown)
         {
             switch (level)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8930931376001536379}
   - component: {fileID: 3564709045442801486}
   - component: {fileID: 1735994853464576332}
-  - component: {fileID: 624007156680842874}
+  - component: {fileID: 6738015750706902253}
   m_Layer: 0
   m_Name: puck
   m_TagString: Puck
@@ -133,7 +133,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.435
---- !u!114 &624007156680842874
+--- !u!114 &6738015750706902253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8930931376001536378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ee7f0d0be30dc4f92e616a2111c2cf, type: 3}
+  m_Script: {fileID: 11500000, guid: c5f4363dfd5d83e4ab295de4deb51bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 5
+  puckOptions:
+  - {fileID: 11400000, guid: 7e716b35bc66f7048958c997f4ad0297, type: 2}
+  - {fileID: 11400000, guid: a1a181af25668f34c96f7c913a977278, type: 2}
+  selectedPuck: {fileID: 0}
