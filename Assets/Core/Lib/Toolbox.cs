@@ -19,22 +19,20 @@ public class Toolbox : Singleton<Toolbox> {
 
 	public ActiveEvent PlayerActive;
 	public GameObject GameOverText;
-	public IntEvent HouseLevelChange;
+	public HouseChangeEvent HouseLevelChange;
 	public IntEvent GameEnd;
 	public ScoreEvent Score;
 	public UnityEvent GameStart;
-	public UnityEvent HouseDowngrade;
-	public UnityEvent HouseUpgrade;
-    public List<AudioClip> oneShotClips;
-    public List<AudioClip> loopingClips;
-    AudioSource cameraAudioSource;
+  public List<AudioClip> oneShotClips;
+  public List<AudioClip> loopingClips;
+  AudioSource cameraAudioSource;
 
 
 	void Awake () {
 		_currentState = GameState.WAITING;
 		_playersReady = new bool[4];
 
-		HouseLevelChange = new IntEvent();
+		HouseLevelChange = new HouseChangeEvent();
 		GameEnd = new IntEvent();
 		GameStart = new UnityEvent();
 		Score = new ScoreEvent();
