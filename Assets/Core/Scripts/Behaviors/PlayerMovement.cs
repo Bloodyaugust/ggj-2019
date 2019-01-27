@@ -1,24 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
     public float MovementSpeed;
     public float RotationSpeed;
 
-    Rigidbody2D rigidBody;
+    Player _player;
+    PlayerController _playerController;
+    Rigidbody2D _rigidbody;
+
+    void Awake () {
+      _playerController = GetComponent<PlayerController>();
+      _player = ReInput.players.GetPlayer(_playerController.PlayerIndex);
+    }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        rigidBody = GetComponent<Rigidbody2D>();  
+    void Start() {
+      _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update() {
-
-        rigidBody.AddForce(transform.up * -1 * Input.GetAxis("Vertical") * MovementSpeed);
-        rigidBody.AddTorque(Input.GetAxis("Horizontal") * RotationSpeed * -1);
+      _rigidbody.AddForce(transform.up * -1 * _player.GetAxis("Move") * MovementSpeed);
+      _rigidbody.AddTorque(_player.GetAxis("Rotate") * RotationSpeed * -1);
     }
 }
