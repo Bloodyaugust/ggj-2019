@@ -52,9 +52,9 @@ public class PlayerController : MonoBehaviour {
     if (!_isActive && _player.GetAnyButtonDown()) {
       _isActive = true;
       _toolbox.PlayerActive.Invoke(new ActiveData(PlayerIndex));
-      _toolbox.PlayerActive.Invoke(new ActiveData(1));
-      _toolbox.PlayerActive.Invoke(new ActiveData(2));
-      _toolbox.PlayerActive.Invoke(new ActiveData(3));
+      // _toolbox.PlayerActive.Invoke(new ActiveData(1));
+      // _toolbox.PlayerActive.Invoke(new ActiveData(2));
+      // _toolbox.PlayerActive.Invoke(new ActiveData(3));
     }
   }
 
