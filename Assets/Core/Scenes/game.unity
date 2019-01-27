@@ -2125,5 +2125,15 @@ PrefabInstance:
       propertyPath: startPoints.Array.data[3]
       value: 
       objectReference: {fileID: 1778986310}
+    - target: {fileID: 8885228981594004081, guid: 39f4d2aa54ec86a49abfc9fb8fb09c48,
+        type: 3}
+      propertyPath: minItems
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8885228981594004081, guid: 39f4d2aa54ec86a49abfc9fb8fb09c48,
+        type: 3}
+      propertyPath: maxItems
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39f4d2aa54ec86a49abfc9fb8fb09c48, type: 3}

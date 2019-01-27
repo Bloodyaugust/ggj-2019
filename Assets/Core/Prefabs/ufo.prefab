@@ -96,8 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minWaitTime: 7
   maxWaitTime: 12
-  minItems: 1
-  maxItems: 3
+  minItems: 3
+  maxItems: 5
   dropPoints:
   - {fileID: 0}
   - {fileID: 0}
