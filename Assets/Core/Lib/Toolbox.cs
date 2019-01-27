@@ -27,7 +27,6 @@ public class Toolbox : Singleton<Toolbox> {
   public List<AudioClip> loopingClips;
   AudioSource cameraAudioSource;
 
-
 	void Awake () {
 		_currentState = GameState.WAITING;
 		_playersReady = new bool[4];
@@ -40,7 +39,9 @@ public class Toolbox : Singleton<Toolbox> {
 
 		GameEnd.AddListener(OnGameEnd);
 		GameStart.AddListener(OnGameStart);
+		HouseLevelChange.AddListener(OnHouseLevelChange);
 		PlayerActive.AddListener(OnPlayerActive);
+		Score.AddListener(OnScore);
 
     cameraAudioSource = GetComponent<AudioSource>();
     cameraAudioSource.clip = loopingClips[0];
@@ -102,6 +103,14 @@ public class Toolbox : Singleton<Toolbox> {
 
 	void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
 
+	}
+
+	void OnHouseLevelChange (HouseChangeData data) {
+		ProCamera2DShake.Instance.Shake("ScoreShake");
+	}
+
+	void OnScore (ScoreData data) {
+		ProCamera2DShake.Instance.Shake("ScoreShake");
 	}
 
 	static public T RegisterComponent<T> () where T: Component {

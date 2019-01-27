@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
+using Com.LuisPedroFonseca.ProCamera2D;
 
 public class playerSound : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class playerSound : MonoBehaviour
 
                 var em = smokeParticles.emission;
                 em.rateOverTime = 12f;
-                
+
 
             }
         }
@@ -61,7 +62,7 @@ public class playerSound : MonoBehaviour
 
                 var em = smokeParticles.emission;
                 em.rateOverTime = 12f;
-                
+
             }
         }
         else
@@ -85,6 +86,7 @@ public class playerSound : MonoBehaviour
             if (collision.relativeVelocity.magnitude > 1)
             {
                 playerAudioSource.PlayOneShot(collisionSound);
+                ProCamera2DShake.Instance.Shake("CollisionShake");
             }
         }
     }
