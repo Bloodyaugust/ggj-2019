@@ -164,6 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puckOptions:
-  - {fileID: 11400000, guid: 7e716b35bc66f7048958c997f4ad0297, type: 2}
-  - {fileID: 11400000, guid: a1a181af25668f34c96f7c913a977278, type: 2}
+  - {fileID: 11400000, guid: b7861ff39525ce7408d009ee7d047878, type: 2}
+  - {fileID: 11400000, guid: ed313705c78902e48b68e13b83782978, type: 2}
   selectedPuck: {fileID: 0}
