@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Com.LuisPedroFonseca.ProCamera2D;
+using TMPro;
 
 public class Toolbox : Singleton<Toolbox> {
 	protected Toolbox () {}
@@ -18,19 +19,20 @@ public class Toolbox : Singleton<Toolbox> {
 
 	public ActiveEvent PlayerActive;
 	public GameObject GameOverText;
-	public IntEvent HouseLevelChange;
+	public HouseChangeEvent HouseLevelChange;
 	public IntEvent GameEnd;
 	public ScoreEvent Score;
 	public UnityEvent GameStart;
-	public UnityEvent HouseDowngrade;
-	public UnityEvent HouseUpgrade;
   public List<AudioClip> oneShotClips;
+  public List<AudioClip> loopingClips;
+  AudioSource cameraAudioSource;
+
 
 	void Awake () {
 		_currentState = GameState.WAITING;
 		_playersReady = new bool[4];
 
-		HouseLevelChange = new IntEvent();
+		HouseLevelChange = new HouseChangeEvent();
 		GameEnd = new IntEvent();
 		GameStart = new UnityEvent();
 		Score = new ScoreEvent();
@@ -40,12 +42,26 @@ public class Toolbox : Singleton<Toolbox> {
 		GameStart.AddListener(OnGameStart);
 		PlayerActive.AddListener(OnPlayerActive);
 
-		SceneManager.sceneLoaded += OnSceneLoaded;
+    cameraAudioSource = GetComponent<AudioSource>();
+    cameraAudioSource.clip = loopingClips[0];
+    cameraAudioSource.Play();
+
+    SceneManager.sceneLoaded += OnSceneLoaded;
+
+		if (GameOverText) {
+			GameOverText.SetActive(true);
+
+			string newGameOverText = $"All players press any button to play";
+			GameOverText.GetComponent<TextMeshProUGUI>().text = newGameOverText;
+		}
 	}
 
 	void OnGameEnd (int winningPlayerIndex) {
 		if (GameOverText) {
 			GameOverText.SetActive(true);
+
+			string newGameOverText = $"Player {winningPlayerIndex} wins! \r\n All players press any button to play again.";
+			GameOverText.GetComponent<TextMeshProUGUI>().text = newGameOverText;
 		}
 
 		GameObject[] pucks = GameObject.FindGameObjectsWithTag("Puck");
@@ -73,8 +89,10 @@ public class Toolbox : Singleton<Toolbox> {
 
 		if (ready) {
 			_currentState = GameState.PLAYING;
+            cameraAudioSource.clip = loopingClips[1];
+            cameraAudioSource.Play();
 
-			for (int i = 0; i < _playersReady.Length; i++) {
+            for (int i = 0; i < _playersReady.Length; i++) {
 				_playersReady[i] = false;
 			}
 
@@ -92,7 +110,7 @@ public class Toolbox : Singleton<Toolbox> {
 
     public void playOneShotClip(int clipNum)
     {
-        GetComponent<AudioSource>().PlayOneShot(oneShotClips[clipNum]);
+        cameraAudioSource.PlayOneShot(oneShotClips[clipNum]);
     }
 }
 
