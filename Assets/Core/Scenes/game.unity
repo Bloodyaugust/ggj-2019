@@ -965,7 +965,7 @@ PrefabInstance:
     - target: {fileID: 8368973702249790666, guid: 76524f2cbd4c090449b6d1a5a3dad86e,
         type: 3}
       propertyPath: drivewayNum
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76524f2cbd4c090449b6d1a5a3dad86e, type: 3}
@@ -1125,7 +1125,7 @@ PrefabInstance:
     - target: {fileID: 8368973702249790666, guid: 76524f2cbd4c090449b6d1a5a3dad86e,
         type: 3}
       propertyPath: drivewayNum
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76524f2cbd4c090449b6d1a5a3dad86e, type: 3}
