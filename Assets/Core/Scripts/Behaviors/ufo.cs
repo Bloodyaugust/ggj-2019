@@ -18,26 +18,44 @@ public class ufo : MonoBehaviour
 
     public float movingChance = .3f;
     public float explodingChance = .1f;
-
     public AudioClip ufoSound;
 
+    bool _enabled = false;
     bool moving = false;
     bool entering = true;
     Vector2 targetPos = new Vector2(0f, 0f);
     int startPoint = 1;
 
+    Toolbox _toolbox;
+
+    void Awake () {
+      _toolbox = Toolbox.Instance;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(waitToDrop());
+        _toolbox = Toolbox.Instance;
+
+        _toolbox.GameEnd.AddListener(OnGameEnd);
+        _toolbox.GameStart.AddListener(OnGameStart);
+    }
+
+    void OnGameEnd (int winningPlayerIndex) {
+      _enabled = false;
+    }
+
+    void OnGameStart () {
+      _enabled = true;
+      StartCoroutine(waitToDrop());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (moving)
+        if (_enabled && moving)
         {
-            
+
             float step = moveSpeed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, targetPos, step);
             float distance = Vector2.Distance(transform.position, targetPos);
@@ -60,7 +78,6 @@ public class ufo : MonoBehaviour
 
     IEnumerator waitToDrop()
     {
-
         float waitTime = Random.Range(minWaitTime, maxWaitTime);
         yield return new WaitForSeconds(waitTime);
         moveToDropPoint();
@@ -78,7 +95,6 @@ public class ufo : MonoBehaviour
         for (int i = 0; i < puckCount; i++)
         {
             float randType = Random.value;
-            Debug.Log(randType / 10);
             if (randType < movingChance)
             {
                 Instantiate(movingPuck, transform.position + new Vector3(randType/10,randType/10,0), Quaternion.identity);
@@ -112,7 +128,6 @@ public class ufo : MonoBehaviour
                 targetPos = startPoints[1].position;
                 break;
         }
-
         moving = true;
     }
 

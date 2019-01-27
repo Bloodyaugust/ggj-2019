@@ -11,9 +11,7 @@ public class puckStart : MonoBehaviour
     void Start()
     {
         int puckNum = Random.Range(0, puckOptions.Count);
-        Debug.Log(puckNum);
         selectedPuck = puckOptions[puckNum];
         gameObject.GetComponent<SpriteRenderer>().sprite = selectedPuck.artwork;
-        
     }
 }

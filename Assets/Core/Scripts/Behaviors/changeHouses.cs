@@ -22,6 +22,8 @@ public class changeHouses : MonoBehaviour
     {
         houseSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
         UpdateSprite(1);
+
+        toolbox.HouseLevelChange.AddListener(UpdateSprite);
     }
 
     // Update is called once per frame
