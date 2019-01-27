@@ -17,11 +17,19 @@ public class changeHouses : MonoBehaviour
         toolbox = Toolbox.Instance;
     }
 
+    Toolbox _toolbox;
+
+    void Awake () {
+      _toolbox = Toolbox.Instance;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         houseSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
         UpdateSprite(1);
+
+        _toolbox.HouseLevelChange.AddListener(UpdateSprite);
     }
 
     // Update is called once per frame

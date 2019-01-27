@@ -13,14 +13,15 @@ public class PlayerController : MonoBehaviour {
   int _score;
   int _level;
   Player _player;
+  PlayerMovement _playerMovement;
   Toolbox _toolbox;
 
   void EvaluateScore () {
+    _playerMovement = GetComponent<PlayerMovement>();
     _score = Mathf.Clamp(_score, 0, ScorePerLevel * MaxLevel);
     _level = (int)Mathf.Floor(_score / ScorePerLevel);
 
-    //TODO: Set house sprite
-    Debug.Log(_level);
+    _toolbox.HouseLevelChange.Invoke(_level);
   }
 
   // Start is called before the first frame update
@@ -43,17 +44,22 @@ public class PlayerController : MonoBehaviour {
     if (!_isActive && _player.GetAnyButtonDown()) {
       _isActive = true;
       _toolbox.PlayerActive.Invoke(new ActiveData(PlayerIndex));
+      _toolbox.PlayerActive.Invoke(new ActiveData(1));
+      _toolbox.PlayerActive.Invoke(new ActiveData(2));
+      _toolbox.PlayerActive.Invoke(new ActiveData(3));
     }
   }
 
-  void OnGameEnd () {
+  void OnGameEnd (int winningPlayerIndex) {
     _isActive = false;
     _isPlaying = false;
+    _playerMovement.enabled = false;
   }
 
   void OnGameStart () {
     _isPlaying = true;
     _score = 0;
+    _playerMovement.enabled = true;
   }
 
   void OnScore (ScoreData scoreData) {
