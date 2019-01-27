@@ -1574,46 +1574,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76524f2cbd4c090449b6d1a5a3dad86e, type: 3}
---- !u!1 &1299000654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5238987580547708678, guid: 4664bc4eeea124742bb9d5b81cdbf522,
-    type: 3}
-  m_PrefabInstance: {fileID: 5238987579391973960}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1299000660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299000654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823daff8ead7c194aa6f161f3c2810c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerActive:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: ActiveEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  GameOverText: {fileID: 47585321}
-  HouseLevelChange:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  GameEnd:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  Score:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: ScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  GameStart:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1336199715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,6 +2123,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063829756072465703, guid: a1586af9b6fe2e84ba90afbae9d7a0b1,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063829756072465703, guid: a1586af9b6fe2e84ba90afbae9d7a0b1,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 3578790347813245762, guid: a1586af9b6fe2e84ba90afbae9d7a0b1,
         type: 3}

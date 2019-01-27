@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5238987580547708679}
   - component: {fileID: 5238987580547708699}
   - component: {fileID: 5238987580547708698}
+  - component: {fileID: 1793191537173466834}
+  - component: {fileID: 1258976773396687340}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -135,3 +137,152 @@ MonoBehaviour:
   ConstantShakePresets: []
   StartConstantShakePreset: {fileID: 0}
   CurrentConstantShakePreset: {fileID: 0}
+--- !u!114 &1793191537173466834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238987580547708678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823daff8ead7c194aa6f161f3c2810c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerActive:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ActiveEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  GameOverText: {fileID: 0}
+  HouseLevelChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  GameEnd:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  Score:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  GameStart:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  HouseDowngrade:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  HouseUpgrade:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  oneShotClips:
+  - {fileID: 8300000, guid: c532892bf847af74fba2e91782a99716, type: 3}
+  - {fileID: 8300000, guid: f8434ef167f519349b099fc904af6802, type: 3}
+  - {fileID: 8300000, guid: fc992eb2e9bbe984bb5ebfdae29474a0, type: 3}
+  - {fileID: 8300000, guid: 4c24530910e4e56439f20bedb4f8341a, type: 3}
+  loopingClips:
+  - {fileID: 8300000, guid: a103d57922054f34a8c9c2eb3df8dfd2, type: 3}
+  - {fileID: 8300000, guid: cba4572ad11dd9442ae0c7fad2f84b70, type: 3}
+  - {fileID: 8300000, guid: 479419f5d48a24a488e63b04498ed01a, type: 3}
+--- !u!82 &1258976773396687340
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238987580547708678}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
