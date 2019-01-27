@@ -18,6 +18,8 @@ public class ufo : MonoBehaviour
 
     public float movingChance = .3f;
     public float explodingChance = .1f;
+    public AudioClip ufoSound;
+
     bool _enabled = false;
     bool moving = false;
     bool entering = true;
@@ -131,6 +133,8 @@ public class ufo : MonoBehaviour
 
     void moveToDropPoint()
     {
+        GetComponent<AudioSource>().PlayOneShot(ufoSound);
+
         int dropPoint = Random.Range(0, dropPoints.Count - 1);
         startPoint = Random.Range(0, startPoints.Count - 1);
 

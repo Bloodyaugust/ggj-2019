@@ -22,6 +22,9 @@ public class Toolbox : Singleton<Toolbox> {
 	public IntEvent GameEnd;
 	public ScoreEvent Score;
 	public UnityEvent GameStart;
+	public UnityEvent HouseDowngrade;
+	public UnityEvent HouseUpgrade;
+  public List<AudioClip> oneShotClips;
 
 	void Awake () {
 		_currentState = GameState.WAITING;
@@ -86,6 +89,11 @@ public class Toolbox : Singleton<Toolbox> {
 	static public T RegisterComponent<T> () where T: Component {
 		return Instance.GetOrAddComponent<T>();
 	}
+
+    public void playOneShotClip(int clipNum)
+    {
+        GetComponent<AudioSource>().PlayOneShot(oneShotClips[clipNum]);
+    }
 }
 
 [System.Serializable]

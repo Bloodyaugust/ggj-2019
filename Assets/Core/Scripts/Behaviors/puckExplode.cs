@@ -7,6 +7,12 @@ public class puckExplode : MonoBehaviour
     public float countdown = 5f;
     public float radius = 10;
     public float force = 500f;
+    Toolbox toolbox;
+
+    private void Awake()
+    {
+        toolbox = Toolbox.Instance;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +44,8 @@ public class puckExplode : MonoBehaviour
                 body.AddForce(baseForce,ForceMode2D.Impulse);
             }
         }
+
+        toolbox.playOneShotClip(3);
 
         Destroy(gameObject);
     }
