@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour {
 
     if (oldLevel != _level) {
       _toolbox.HouseLevelChange.Invoke(new HouseChangeData(_level, PlayerIndex));
+
+      if (_level == MaxLevel) {
+        _toolbox.GameEnd.Invoke(PlayerIndex);
+      }
     }
   }
 
