@@ -11,6 +11,7 @@ public class playerSound : MonoBehaviour
     public AudioClip honk;
     public AudioClip collisionSound;
     AudioSource playerAudioSource;
+    public ParticleSystem smokeParticles;
 
     Player _player;
     PlayerController _playerController;
@@ -26,6 +27,7 @@ public class playerSound : MonoBehaviour
     void Start()
     {
         playerAudioSource = GetComponent<AudioSource>();
+        //smokeParticles = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -38,6 +40,10 @@ public class playerSound : MonoBehaviour
                 lastDirection = -1;
                 playerAudioSource.clip = engine2;
                 playerAudioSource.Play();
+
+                var em = smokeParticles.emission;
+                em.rateOverTime = 12f;
+
             }
         }
         else if (_player.GetAxis("Move") < 0)
@@ -47,6 +53,9 @@ public class playerSound : MonoBehaviour
                 lastDirection = 1;
                 playerAudioSource.clip = backup;
                 playerAudioSource.Play();
+
+                var em = smokeParticles.emission;
+                em.rateOverTime = 12f;
             }
         }
         else
@@ -56,6 +65,9 @@ public class playerSound : MonoBehaviour
                 lastDirection = 0;
                 playerAudioSource.clip = engine1;
                 playerAudioSource.Play();
+
+                var em = smokeParticles.emission;
+                em.rateOverTime = 2f;
             }
         }
     }
@@ -64,7 +76,10 @@ public class playerSound : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerAudioSource.PlayOneShot(collisionSound);
+            if (collision.relativeVelocity.magnitude > 1)
+            {
+                playerAudioSource.PlayOneShot(collisionSound);
+            }
         }
     }
 }
