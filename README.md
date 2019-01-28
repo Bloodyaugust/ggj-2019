@@ -9,3 +9,5 @@ Created by:
 - Greyson Richey (Engineer, Design)
 - Nick Lives (Art, Design)
 - Tara Timmerman (Engineer, Design)
+
+Made during the Global Game Jam (2019). The project page can be found [here](https://globalgamejam.org/2019/games/keeping-dozers).
