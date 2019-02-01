@@ -1,0 +1,139 @@
+
+<html>
+<head>
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <script type="text/javascript" src="https://www.airconsole.com/api/airconsole-1.7.0.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.css">
+  <style type=text/css>
+  body {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  #background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  #steering .slider {
+    top: calc(75% - 9px);
+    width: 50%;
+  }
+  #movement .slider {
+    height: 42.79%;
+    left: calc(75% - 9px);
+    top: calc(50% - 9px);
+  }
+
+  .noUi-connects {
+    background: #716c6c;
+  }
+  .noUi-origin .noUi-handle {
+    background: #f19797;
+    border-radius: 18px;
+    box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #e44242, 0 3px 6px -3px #BBB;
+    height: 36px;
+    outline: none;
+    width: 36px;
+  }
+  .noUi-handle::after {
+    background: none;
+  }
+  .noUi-origin .noUi-handle::before {
+    background: transparent;
+    height: 400px;
+    width: 400px;
+    left: -183px;
+    top: -183px;
+    border-radius: 100%;
+  }
+  .noUi-horizontal .noUi-handle {
+    top: -10px;
+  }
+  .noUi-vertical .noUi-handle {
+    left: -10px;
+  }
+  .slider-container {
+    flex: auto;
+    height: calc(100vh - 40px);
+    padding: 20px;
+  }
+  </style>
+
+  <script type="text/javascript">
+    var airconsole;
+
+    function App() {
+      var me = this;
+      me.airconsole = new AirConsole({'orientation': 'landscape', 'synchronize_time' : 'true'});
+
+      me.airconsole.onMessage = (fromIndex, message) => {
+        console.log(message);
+
+        let jsonMessage = JSON.parse(message);
+        console.log(jsonMessage);
+
+        if (jsonMessage.action === 'shake') {
+          window.navigator.vibrate(jsonMessage.value);
+        }
+      }
+
+      const steeringSliderElement = steering.getElementsByClassName('slider')[0];
+      const movementSliderElement = movement.getElementsByClassName('slider')[0];
+
+      noUiSlider.create(steeringSliderElement, {
+        behaviour: 'drag',
+        range: {
+          min: -1,
+          max: 1
+        },
+        start: [0],
+        step: 0.1,
+      });
+      steeringSliderElement.noUiSlider.on('slide', (values, handleIndex, unencodedValues) => {
+        me.sendActionToScreen('Rotate', unencodedValues[0]);
+      });
+      steeringSliderElement.noUiSlider.on('end', () => {
+        steeringSliderElement.noUiSlider.set(0);
+        me.sendActionToScreen('Rotate', 0);
+      });
+
+      noUiSlider.create(movementSliderElement, {
+        behaviour: 'drag',
+        direction: 'rtl',
+        orientation: 'vertical',
+        range: {
+          min: -1,
+          max: 1
+        },
+        start: [0],
+        step: 0.1,
+      });
+      movementSliderElement.noUiSlider.on('slide', (values, handleIndex, unencodedValues) => {
+        me.sendActionToScreen('Move', unencodedValues[0]);
+      });
+      movementSliderElement.noUiSlider.on('end', () => {
+        movementSliderElement.noUiSlider.set(0);
+        me.sendActionToScreen('Move', 0);
+      });
+    }
+
+    App.prototype.sendActionToScreen = function(action, value) {
+    	this.airconsole.message(AirConsole.SCREEN, {action, value});
+    };
+  </script>
+
+</head>
+<body onload="window.app = new App()">
+  <div id="background"></div>
+  <div class="slider-container" id="steering">
+    <div class="slider"></div>
+  </div>
+  <div class="slider-container" id="movement">
+    <div class="slider"></div>
+  </div>
+</body>
+</html>
