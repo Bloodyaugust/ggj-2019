@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 1258976773396687340}
   - component: {fileID: 4859791094166670683}
   - component: {fileID: 3972795433252825073}
+  - component: {fileID: 4775555322242043238}
+  - component: {fileID: 2344772318150490366}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -330,3 +332,30 @@ MonoBehaviour:
   separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
   chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
     type: 3}
+--- !u!114 &4775555322242043238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238987580547708678}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37d83ebce05ad74683fd3228dde9e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  browserStartMode: 3
+  controllerHtml: {fileID: 4900000, guid: 8ed0c9be85c7e5b469b2b2098a162606, type: 3}
+  autoScaleCanvas: 1
+--- !u!114 &2344772318150490366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238987580547708678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d98f03e3e623147a1a91ff83e0462a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

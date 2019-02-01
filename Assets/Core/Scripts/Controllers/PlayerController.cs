@@ -74,7 +74,8 @@ public class PlayerController : MonoBehaviour {
   void OnScore (ScoreData scoreData) {
     if (PlayerIndex == scoreData.PlayerIndex) {
       _score += scoreData.Amount;
-      Debug.Log(scoreData.Amount);
+      _player.SetVibration(0, 1, 0.5f);
+      _player.SetVibration(1, 1, 0.5f);
       EvaluateScore();
     }
   }

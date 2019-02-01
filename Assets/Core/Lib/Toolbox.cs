@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Com.LuisPedroFonseca.ProCamera2D;
 using TMPro;
+using NDream.AirConsole;
 
 public class Toolbox : Singleton<Toolbox> {
 	protected Toolbox () {}
@@ -107,20 +108,25 @@ public class Toolbox : Singleton<Toolbox> {
 
 	void OnHouseLevelChange (HouseChangeData data) {
 		ProCamera2DShake.Instance.Shake("ScoreShake");
+		#if UNITY_WEBGL
+			AirConsole.instance.Broadcast("{\"action\": \"shake\", \"value\": [500, 100, 500]}");
+		#endif
 	}
 
 	void OnScore (ScoreData data) {
 		ProCamera2DShake.Instance.Shake("ScoreShake");
+		#if UNITY_WEBGL
+			AirConsole.instance.Broadcast("{\"action\": \"shake\", \"value\": 300}");
+		#endif
 	}
 
 	static public T RegisterComponent<T> () where T: Component {
 		return Instance.GetOrAddComponent<T>();
 	}
 
-    public void playOneShotClip(int clipNum)
-    {
-        cameraAudioSource.PlayOneShot(oneShotClips[clipNum]);
-    }
+  public void playOneShotClip (int clipNum) {
+      cameraAudioSource.PlayOneShot(oneShotClips[clipNum]);
+  }
 }
 
 [System.Serializable]

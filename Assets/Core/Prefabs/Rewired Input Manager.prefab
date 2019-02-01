@@ -68,59 +68,59 @@ MonoBehaviour:
       allowInputInEditorSceneView: 0
       platformVars_windowsStandalone:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
         useNativeKeyboard: 1
         joystickRefreshRate: 240
       platformVars_linuxStandalone:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_osxStandalone:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_windows8Store:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_windowsUWP:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
         useGamepadAPI: 1
         useHIDAPI: 1
       platformVars_iOS:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_tvOS:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_android:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_ps3:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_ps4:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_psVita:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_xbox360:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_xboxOne:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_wii:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_wiiu:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_switch:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       platformVars_webGL:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        ignoreInputWhenAppNotInFocus: 0
       maxJoysticksPerPlayer: 1
       autoAssignJoysticks: 1
       assignJoysticksToPlayingPlayersOnly: 0
@@ -180,8 +180,13 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 0
         _layoutId: 0
-      _defaultCustomControllerMaps: []
-      _startingCustomControllers: []
+      _defaultCustomControllerMaps:
+      - _enabled: 1
+        _categoryId: 0
+        _layoutId: 0
+      _startingCustomControllers:
+      - _sourceId: 0
+        _tag: AirConsoleController
       _assignMouseOnStart: 1
       _assignKeyboardOnStart: 1
       _excludeFromControllerAutoAssignment: 0
@@ -195,8 +200,13 @@ MonoBehaviour:
         _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps: []
-      _defaultCustomControllerMaps: []
-      _startingCustomControllers: []
+      _defaultCustomControllerMaps:
+      - _enabled: 1
+        _categoryId: 0
+        _layoutId: 0
+      _startingCustomControllers:
+      - _sourceId: 0
+        _tag: AirConsoleController
       _assignMouseOnStart: 0
       _assignKeyboardOnStart: 1
       _excludeFromControllerAutoAssignment: 0
@@ -210,8 +220,13 @@ MonoBehaviour:
         _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps: []
-      _defaultCustomControllerMaps: []
-      _startingCustomControllers: []
+      _defaultCustomControllerMaps:
+      - _enabled: 1
+        _categoryId: 0
+        _layoutId: 0
+      _startingCustomControllers:
+      - _sourceId: 0
+        _tag: AirConsoleController
       _assignMouseOnStart: 0
       _assignKeyboardOnStart: 1
       _excludeFromControllerAutoAssignment: 0
@@ -225,8 +240,13 @@ MonoBehaviour:
         _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps: []
-      _defaultCustomControllerMaps: []
-      _startingCustomControllers: []
+      _defaultCustomControllerMaps:
+      - _enabled: 1
+        _categoryId: 0
+        _layoutId: 0
+      _startingCustomControllers:
+      - _sourceId: 0
+        _tag: AirConsoleController
       _assignMouseOnStart: 0
       _assignKeyboardOnStart: 1
       _excludeFromControllerAutoAssignment: 0
@@ -412,8 +432,120 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
     mouseMaps: []
-    customControllerMaps: []
-    customControllers: []
+    customControllerMaps:
+    - id: 0
+      categoryId: 0
+      layoutId: 0
+      name: 
+      hardwareGuidString: 
+      customControllerUid: 0
+      actionElementMaps:
+      - _actionCategoryId: 0
+        _actionId: 1
+        _elementType: 0
+        _elementIdentifierId: 3
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 0
+        _elementType: 0
+        _elementIdentifierId: 2
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+    customControllers:
+    - _name: AirConsoleController
+      _descriptiveName: AirConsole adaptive controller.
+      _id: 0
+      _elementIdentifiers:
+      - _id: 0
+        _name: LeftStickX
+        _positiveName: 
+        _negativeName: 
+        _elementType: 0
+        _compoundElementType: 0
+      - _id: 3
+        _name: LeftStickY
+        _positiveName: 
+        _negativeName: 
+        _elementType: 0
+        _compoundElementType: 0
+      - _id: 2
+        _name: RightStickX
+        _positiveName: 
+        _negativeName: 
+        _elementType: 0
+        _compoundElementType: 0
+      - _id: 4
+        _name: RightStickY
+        _positiveName: 
+        _negativeName: 
+        _elementType: 0
+        _compoundElementType: 0
+      _axes:
+      - elementIdentifierId: 0
+        name: LeftStickX
+        range: 0
+        invert: 0
+        deadZone: 0
+        zero: 0
+        min: -1
+        max: 1
+        doNotCalibrateRange: 0
+        axisInfo:
+          _dataFormat: 0
+          _excludeFromPolling: 0
+          _specialAxisType: 0
+      - elementIdentifierId: 3
+        name: LeftStickY
+        range: 0
+        invert: 0
+        deadZone: 0
+        zero: 0
+        min: -1
+        max: 1
+        doNotCalibrateRange: 0
+        axisInfo:
+          _dataFormat: 0
+          _excludeFromPolling: 0
+          _specialAxisType: 0
+      - elementIdentifierId: 2
+        name: RightStickX
+        range: 0
+        invert: 0
+        deadZone: 0
+        zero: 0
+        min: -1
+        max: 1
+        doNotCalibrateRange: 0
+        axisInfo:
+          _dataFormat: 0
+          _excludeFromPolling: 0
+          _specialAxisType: 0
+      - elementIdentifierId: 4
+        name: RightStickY
+        range: 0
+        invert: 0
+        deadZone: 0
+        zero: 0
+        min: -1
+        max: 1
+        doNotCalibrateRange: 0
+        axisInfo:
+          _dataFormat: 0
+          _excludeFromPolling: 0
+          _specialAxisType: 0
+      _buttons: []
+      _elementIdentifierIdCounter: 5
     playerIdCounter: 5
     actionIdCounter: 2
     actionCategoryIdCounter: 1
@@ -426,7 +558,7 @@ MonoBehaviour:
     joystickMapIdCounter: 1
     keyboardMapIdCounter: 1
     mouseMapIdCounter: 0
-    customControllerMapIdCounter: 0
-    customControllerIdCounter: 0
+    customControllerMapIdCounter: 1
+    customControllerIdCounter: 1
   _controllerDataFiles: {fileID: 11400000, guid: d21d2b20df8369642b76aafbb2576ba7,
     type: 2}

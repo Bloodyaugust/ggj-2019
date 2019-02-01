@@ -601,11 +601,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4235592375239654428, guid: 464f8d64b673b49868be99e2d50a9870,
-        type: 3}
-      propertyPath: m_Name
-      value: Rewired Input Manager
-      objectReference: {fileID: 0}
     - target: {fileID: 4867422626118413649, guid: 464f8d64b673b49868be99e2d50a9870,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -660,6 +655,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235592375239654428, guid: 464f8d64b673b49868be99e2d50a9870,
+        type: 3}
+      propertyPath: m_Name
+      value: Rewired Input Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 464f8d64b673b49868be99e2d50a9870, type: 3}
@@ -1749,6 +1749,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3578790347813245762, guid: a1586af9b6fe2e84ba90afbae9d7a0b1,
+        type: 3}
+      propertyPath: PlayerIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3063829756072465703, guid: a1586af9b6fe2e84ba90afbae9d7a0b1,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -1758,11 +1763,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 3578790347813245762, guid: a1586af9b6fe2e84ba90afbae9d7a0b1,
-        type: 3}
-      propertyPath: PlayerIndex
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1586af9b6fe2e84ba90afbae9d7a0b1, type: 3}
