@@ -21,10 +21,15 @@ public class ufo : MonoBehaviour
     public AudioClip ufoSound;
 
     bool _enabled = false;
-    bool moving = false;
     bool entering = true;
     Vector2 targetPos = new Vector2(0f, 0f);
     int startPoint = 1;
+
+    TrailRenderer ufoTrail;
+
+    float startTime;
+    float waitTime;
+    int curStage = 0;
 
     Toolbox _toolbox;
 
@@ -35,6 +40,8 @@ public class ufo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ufoTrail = gameObject.GetComponent<TrailRenderer>();
+
         _toolbox = Toolbox.Instance;
 
         _toolbox.GameEnd.AddListener(OnGameEnd);
@@ -46,48 +53,60 @@ public class ufo : MonoBehaviour
     }
 
     void OnGameStart () {
-      _enabled = true;
-      StartCoroutine(waitToDrop());
+        _enabled = true;
+        curStage = 0;
+        startTime = Time.time;
+        waitTime = Random.Range(minWaitTime, maxWaitTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_enabled && moving)
+        if (_enabled)
         {
-
-            float step = moveSpeed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, step);
-            float distance = Vector2.Distance(transform.position, targetPos);
-            if (distance < 1)
+            switch (curStage)
             {
-                moving = false;
-                if (entering)
-                {
-                    entering = false;
-                    dropPucks();
-                }
-                else
-                {
-                    entering = true;
-                    StartCoroutine(waitToDrop());
-                }
+                case 0: //wait to drop
+                    if (Time.time - startTime >= waitTime)
+                        moveToDropPoint();
+                    break;
+                case 1: //move to point and drop pucks
+                    move();
+                    break;
+                case 2: //wait to leave drop point
+                    if (Time.time - startTime >= waitTime)
+                        leaveDropPoint();
+                    break;
+                case 3://move away from drop point
+                    move();
+                    break;
+            }
+
+        }
+        
+    }
+
+    void move()
+    {
+        float step = moveSpeed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, step);
+        float distance = Vector2.Distance(transform.position, targetPos);
+        if (distance < 1)
+        {
+            if (entering)
+            {
+                entering = false;
+                dropPucks();
+            }
+            else
+            {
+                entering = true;
+                waitTime = Random.Range(minWaitTime, maxWaitTime);
+                curStage = 0;
             }
         }
     }
 
-    IEnumerator waitToDrop()
-    {
-        float waitTime = Random.Range(minWaitTime, maxWaitTime);
-        yield return new WaitForSeconds(waitTime);
-        moveToDropPoint();
-    }
-
-    IEnumerator waitToLeave()
-    {
-        yield return new WaitForSeconds(1);
-        leaveDropPoint();
-    }
 
     void dropPucks()
     {
@@ -108,7 +127,10 @@ public class ufo : MonoBehaviour
                 Instantiate(basicPuck, transform.position + new Vector3(randType / 10, randType / 10, 0), Quaternion.identity);
             }
         }
-        StartCoroutine(waitToLeave());
+
+        waitTime = 1;
+        startTime = Time.time;
+        curStage = 2;
     }
 
     void leaveDropPoint()
@@ -128,11 +150,15 @@ public class ufo : MonoBehaviour
                 targetPos = startPoints[1].position;
                 break;
         }
-        moving = true;
+
+        entering = false;
+        curStage = 3;
     }
 
     void moveToDropPoint()
     {
+        ufoTrail.enabled = false;
+
         GetComponent<AudioSource>().PlayOneShot(ufoSound);
 
         int dropPoint = Random.Range(0, dropPoints.Count - 1);
@@ -141,6 +167,10 @@ public class ufo : MonoBehaviour
         transform.position = startPoints[startPoint].position;
         targetPos = dropPoints[dropPoint].position;
 
-        moving = true;
+        ufoTrail.enabled = true;
+
+        entering = true;
+
+        curStage = 1;
     }
 }
