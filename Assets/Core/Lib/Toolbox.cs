@@ -75,6 +75,7 @@ public class Toolbox : Singleton<Toolbox> {
 	void OnGameStart () {
 		if (GameOverText) {
 			GameOverText.SetActive(false);
+			AirConsole.instance.Broadcast("{\"action\": \"shake\", \"value\": [500, 100, 500]}");
 		}
 	}
 
