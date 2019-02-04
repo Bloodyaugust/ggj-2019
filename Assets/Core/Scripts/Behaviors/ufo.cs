@@ -29,7 +29,17 @@ public class ufo : MonoBehaviour
 
     float startTime;
     float waitTime;
-    int curStage = 0;
+    //int curStage = 0;
+
+    public enum UFOState
+    {
+        Idle,
+        MovingToDrop,
+        Dropping,
+        MovingToIdle
+    }
+
+    UFOState _curState = UFOState.Idle;
 
     Toolbox _toolbox;
 
@@ -54,7 +64,7 @@ public class ufo : MonoBehaviour
 
     void OnGameStart () {
         _enabled = true;
-        curStage = 0;
+        _curState = UFOState.Idle;
         startTime = Time.time;
         waitTime = Random.Range(minWaitTime, maxWaitTime);
     }
@@ -64,20 +74,20 @@ public class ufo : MonoBehaviour
     {
         if (_enabled)
         {
-            switch (curStage)
+            switch (_curState)
             {
-                case 0: //wait to drop
+                case UFOState.Idle: //wait to drop
                     if (Time.time - startTime >= waitTime)
                         moveToDropPoint();
                     break;
-                case 1: //move to point and drop pucks
+                case UFOState.MovingToDrop: //move to point and drop pucks
                     move();
                     break;
-                case 2: //wait to leave drop point
+                case UFOState.Dropping: //wait to leave drop point
                     if (Time.time - startTime >= waitTime)
                         leaveDropPoint();
                     break;
-                case 3://move away from drop point
+                case UFOState.MovingToIdle://move away from drop point
                     move();
                     break;
             }
@@ -102,7 +112,7 @@ public class ufo : MonoBehaviour
             {
                 entering = true;
                 waitTime = Random.Range(minWaitTime, maxWaitTime);
-                curStage = 0;
+                _curState = UFOState.Idle;
             }
         }
     }
@@ -130,7 +140,7 @@ public class ufo : MonoBehaviour
 
         waitTime = 1;
         startTime = Time.time;
-        curStage = 2;
+        _curState = UFOState.Dropping;
     }
 
     void leaveDropPoint()
@@ -152,7 +162,7 @@ public class ufo : MonoBehaviour
         }
 
         entering = false;
-        curStage = 3;
+        _curState = UFOState.MovingToIdle;
     }
 
     void moveToDropPoint()
@@ -171,6 +181,6 @@ public class ufo : MonoBehaviour
 
         entering = true;
 
-        curStage = 1;
+        _curState = UFOState.MovingToDrop;
     }
 }
