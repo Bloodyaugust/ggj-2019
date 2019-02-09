@@ -21,10 +21,25 @@ public class ufo : MonoBehaviour
     public AudioClip ufoSound;
 
     bool _enabled = false;
-    bool moving = false;
     bool entering = true;
     Vector2 targetPos = new Vector2(0f, 0f);
     int startPoint = 1;
+
+    TrailRenderer ufoTrail;
+
+    float startTime;
+    float waitTime;
+    //int curStage = 0;
+
+    public enum UFOState
+    {
+        Idle,
+        MovingToDrop,
+        Dropping,
+        MovingToIdle
+    }
+
+    UFOState _curState = UFOState.Idle;
 
     Toolbox _toolbox;
 
@@ -35,6 +50,8 @@ public class ufo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ufoTrail = gameObject.GetComponent<TrailRenderer>();
+
         _toolbox = Toolbox.Instance;
 
         _toolbox.GameEnd.AddListener(OnGameEnd);
@@ -46,48 +63,60 @@ public class ufo : MonoBehaviour
     }
 
     void OnGameStart () {
-      _enabled = true;
-      StartCoroutine(waitToDrop());
+        _enabled = true;
+        _curState = UFOState.Idle;
+        startTime = Time.time;
+        waitTime = Random.Range(minWaitTime, maxWaitTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_enabled && moving)
+        if (_enabled)
         {
-
-            float step = moveSpeed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, step);
-            float distance = Vector2.Distance(transform.position, targetPos);
-            if (distance < 1)
+            switch (_curState)
             {
-                moving = false;
-                if (entering)
-                {
-                    entering = false;
-                    dropPucks();
-                }
-                else
-                {
-                    entering = true;
-                    StartCoroutine(waitToDrop());
-                }
+                case UFOState.Idle: //wait to drop
+                    if (Time.time - startTime >= waitTime)
+                        moveToDropPoint();
+                    break;
+                case UFOState.MovingToDrop: //move to point and drop pucks
+                    move();
+                    break;
+                case UFOState.Dropping: //wait to leave drop point
+                    if (Time.time - startTime >= waitTime)
+                        leaveDropPoint();
+                    break;
+                case UFOState.MovingToIdle://move away from drop point
+                    move();
+                    break;
+            }
+
+        }
+        
+    }
+
+    void move()
+    {
+        float step = moveSpeed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, step);
+        float distance = Vector2.Distance(transform.position, targetPos);
+        if (distance < 1)
+        {
+            if (entering)
+            {
+                entering = false;
+                dropPucks();
+            }
+            else
+            {
+                entering = true;
+                waitTime = Random.Range(minWaitTime, maxWaitTime);
+                _curState = UFOState.Idle;
             }
         }
     }
 
-    IEnumerator waitToDrop()
-    {
-        float waitTime = Random.Range(minWaitTime, maxWaitTime);
-        yield return new WaitForSeconds(waitTime);
-        moveToDropPoint();
-    }
-
-    IEnumerator waitToLeave()
-    {
-        yield return new WaitForSeconds(1);
-        leaveDropPoint();
-    }
 
     void dropPucks()
     {
@@ -108,7 +137,10 @@ public class ufo : MonoBehaviour
                 Instantiate(basicPuck, transform.position + new Vector3(randType / 10, randType / 10, 0), Quaternion.identity);
             }
         }
-        StartCoroutine(waitToLeave());
+
+        waitTime = 1;
+        startTime = Time.time;
+        _curState = UFOState.Dropping;
     }
 
     void leaveDropPoint()
@@ -128,11 +160,15 @@ public class ufo : MonoBehaviour
                 targetPos = startPoints[1].position;
                 break;
         }
-        moving = true;
+
+        entering = false;
+        _curState = UFOState.MovingToIdle;
     }
 
     void moveToDropPoint()
     {
+        ufoTrail.enabled = false;
+
         GetComponent<AudioSource>().PlayOneShot(ufoSound);
 
         int dropPoint = Random.Range(0, dropPoints.Count - 1);
@@ -141,6 +177,10 @@ public class ufo : MonoBehaviour
         transform.position = startPoints[startPoint].position;
         targetPos = dropPoints[dropPoint].position;
 
-        moving = true;
+        ufoTrail.enabled = true;
+
+        entering = true;
+
+        _curState = UFOState.MovingToDrop;
     }
 }
