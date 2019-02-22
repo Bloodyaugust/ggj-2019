@@ -35,12 +35,17 @@ public class driveway : MonoBehaviour
     IEnumerator destroyPuck(GameObject puck)
     {
         yield return new WaitForSeconds(1);
+        ParticleSystem particles = puck.GetComponent<ParticleSystem>();
+        particles.Play();
+        puck.GetComponent<SpriteRenderer>().enabled = false;
+        puck.GetComponent<CircleCollider2D>().enabled = false;
         int value = puck.GetComponent<puckStart>().selectedPuck.value;
         if (value > 0)
             toolbox.playOneShotClip(2);
         else
             toolbox.playOneShotClip(1);
         toolbox.Score.Invoke(new ScoreData(value, drivewayNum));
+        yield return new WaitForSeconds(2);
         Destroy(puck);
     }
 }
