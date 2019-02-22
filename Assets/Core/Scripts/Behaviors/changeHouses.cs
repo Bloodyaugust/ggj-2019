@@ -70,7 +70,6 @@ public class changeHouses : MonoBehaviour
     }
 
     void UpdateSprite(HouseChangeData changeData) {
-      //Sprite newSprite;
 
       if (PlayerIndex == changeData.PlayerIndex) {
         if (facingDown) {
